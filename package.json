@@ -1,6 +1,7 @@
 {
   "name": "social-media-app",
   "private": true,
+  "homepage": "https://shay213.github.io/social-media-app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
