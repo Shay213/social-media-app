@@ -11,7 +11,7 @@
     "lint": "eslint --fix --ext .ts,.tsx ./src",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
