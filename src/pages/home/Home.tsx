@@ -1,38 +1,14 @@
 import "./home.scss";
 
+// components
+import Posts from "../../components/posts/Posts";
+import Stories from "../../components/stories/Stories";
+
 export default function Home() {
   return (
     <div className="home">
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
-      <h1>dfas</h1>
+      <Stories />
+      <Posts />
     </div>
   );
 }

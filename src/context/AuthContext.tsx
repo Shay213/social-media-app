@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import userProfile from "../assets/images/userProfile.svg";
+import userProfile from "../assets/images/userProfile.jpg";
 
 interface User {
   id: number;

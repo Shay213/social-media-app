@@ -18,7 +18,7 @@ import { useAuthContext } from "./context/AuthContext";
 function App() {
   const { darkMode } = useDarkModeContext();
   const { currentUser } = useAuthContext();
-  console.log(currentUser);
+
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
