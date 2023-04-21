@@ -47,6 +47,8 @@ export default function Posts() {
           name={post.name}
           profilePic={post.profilePic}
           img={post.img}
+          userId={post.userId}
+          desc={post.desc}
         />
       ))}
     </div>
