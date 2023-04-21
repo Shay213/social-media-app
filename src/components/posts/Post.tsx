@@ -1,5 +1,6 @@
 import "./post.scss";
 import { Link } from "react-router-dom";
+import Comments from "../comments/Comments";
 
 // icons
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -7,6 +8,7 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import { useState } from "react";
 
 interface PostProps {
   name: string;
@@ -23,6 +25,7 @@ export default function Post({
   userId,
   desc,
 }: PostProps) {
+  const [commentOpen, setCommentOpen] = useState(false);
   const liked = false;
 
   return (
@@ -49,7 +52,12 @@ export default function Post({
             {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
             12 Likes
           </div>
-          <div className="item">
+          <div
+            className="item"
+            onClick={() => {
+              setCommentOpen(!commentOpen);
+            }}
+          >
             <TextsmsOutlinedIcon />
             12 Comments
           </div>
@@ -58,6 +66,7 @@ export default function Post({
             Share
           </div>
         </div>
+        {commentOpen && <Comments />}
       </div>
     </div>
   );
