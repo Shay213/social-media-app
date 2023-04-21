@@ -1,26 +1,21 @@
-import Buttons from "./buttons";
+import { type UserInfoProps } from "./Suggestions";
 
-export default function Suggestions() {
+export default function OnlineFriends() {
   return (
     <div className="item">
-      <span>Suggestions For You</span>
+      <span>Online Friends</span>
       <div className="user">
         <UserInfo name="Jane Doe" url="" />
-        <Buttons />
       </div>
     </div>
   );
-}
-
-export interface UserInfoProps {
-  name: string;
-  url: string;
 }
 
 function UserInfo({ name, url }: UserInfoProps) {
   return (
     <div className="userInfo">
       <img src={url} alt="" />
+      <div className="online" />
       <span>{name}</span>
     </div>
   );

@@ -1,5 +1,5 @@
-import Item from "./item";
-import { type MenuSection } from "./leftbar";
+import Item from "./Item";
+import { type MenuSection } from "./Leftbar";
 
 export default function Menu({ title, items }: MenuSection) {
   return (

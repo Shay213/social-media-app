@@ -1,4 +1,4 @@
-import { type UserInfoProps } from "./suggestions";
+import { type UserInfoProps } from "./Suggestions";
 
 export default function LatestActivities() {
   return (

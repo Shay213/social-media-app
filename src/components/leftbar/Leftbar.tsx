@@ -16,7 +16,8 @@ import courses from "../../assets/images/training-elearning-education-tablet-onl
 import videos from "../../assets/images/videocameracompact-svgrepo-com.svg";
 
 // components
-import Menu from "./menu";
+import Menu from "./Menu";
+import { useAuthContext } from "../../context/AuthContext";
 
 interface Item {
   name: string;
@@ -32,7 +33,7 @@ const menuSections: MenuSection[] = [
   {
     title: "",
     items: [
-      { name: "John Doe", url: "" },
+      { name: "", url: "" },
       { name: "Friends", url: friends },
       { name: "Groups", url: groups },
       { name: "Marketplace", url: marketplace },
@@ -61,6 +62,13 @@ const menuSections: MenuSection[] = [
 ];
 
 export default function Leftbar() {
+  const { currentUser } = useAuthContext();
+
+  menuSections[0].items[0] = {
+    name: currentUser?.name ?? "",
+    url: currentUser?.imgUrl ?? "",
+  };
+
   return (
     <div className="leftbar">
       <div className="container">

@@ -1,7 +1,7 @@
-import LatestActivities from "./latestActivites";
-import OnlineFriends from "./onlineFriends";
+import LatestActivities from "./LatestActivites";
+import OnlineFriends from "./OnlineFriends";
 import "./rightbar.scss";
-import Suggestions from "./suggestions";
+import Suggestions from "./Suggestions";
 
 export default function Rightbar() {
   return (

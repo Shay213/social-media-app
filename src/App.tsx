@@ -3,20 +3,22 @@ import React from "react";
 import "./app.scss";
 
 // components
-import Login from "./pages/login/login";
-import Home from "./pages/home/home";
-import Register from "./pages/register/register";
-import Profile from "./pages/profile/profile";
-import Navbar from "./components/navbar/navbar";
-import Leftbar from "./components/leftbar/leftbar";
-import Rightbar from "./components/rightbar/rightbar";
-import { useDarkModeContext } from "./context/darkModeContext";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import Register from "./pages/register/Register";
+import Profile from "./pages/profile/Profile";
+import Navbar from "./components/navbar/Navbar";
+import Leftbar from "./components/leftbar/Leftbar";
+import Rightbar from "./components/rightbar/Rightbar";
+
+// context
+import { useDarkModeContext } from "./context/DarkModeContext";
+import { useAuthContext } from "./context/AuthContext";
 
 function App() {
-  const currentUser = true;
-
   const { darkMode } = useDarkModeContext();
-
+  const { currentUser } = useAuthContext();
+  console.log(currentUser);
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
@@ -35,7 +37,7 @@ function App() {
   const ProtectedRoute = ({
     children,
   }: React.PropsWithChildren): React.ReactElement => {
-    if (!currentUser) {
+    if (currentUser === null) {
       return <Navigate to={"/login"} />;
     }
 
