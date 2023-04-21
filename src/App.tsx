@@ -1,5 +1,6 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import React from "react";
+import "./app.scss";
 
 // components
 import Login from "./pages/login/login";
@@ -15,11 +16,13 @@ function App() {
 
   const Layout = () => {
     return (
-      <div>
+      <div className="theme-dark">
         <Navbar />
         <div style={{ display: "flex" }}>
           <Leftbar />
-          <Outlet />
+          <div style={{ flex: 7 }}>
+            <Outlet />
+          </div>
           <Rightbar />
         </div>
       </div>
