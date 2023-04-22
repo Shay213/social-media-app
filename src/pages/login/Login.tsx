@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import "./login.scss";
 import { useAuthContext } from "../../context/AuthContext";
+import RegisterLink from "./RegisterLink";
 
 export default function Login() {
   const { login } = useAuthContext();
@@ -19,10 +19,7 @@ export default function Login() {
             veritatis provident quae porro, dolorem tempora reprehenderit quasi
             quod rem distinctio?
           </p>
-          <span>Don&apos;t you have an account?</span>
-          <Link to="/register">
-            <button>Register</button>
-          </Link>
+          <RegisterLink />
         </div>
         <div className="right">
           <h1>Login</h1>
@@ -31,6 +28,7 @@ export default function Login() {
             <input type="password" placeholder="Password" />
             <button onClick={handleLogin}>Login</button>
           </form>
+          <RegisterLink />
         </div>
       </div>
     </div>
