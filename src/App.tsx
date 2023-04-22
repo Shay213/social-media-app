@@ -23,11 +23,15 @@ function App() {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
-        <div style={{ display: "flex" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "clamp(240px, 15%, 400px) 2fr clamp(270px, 25%, 500px)",
+          }}
+        >
           <Leftbar />
-          <div style={{ flex: 7 }}>
-            <Outlet />
-          </div>
+          <Outlet />
           <Rightbar />
         </div>
       </div>

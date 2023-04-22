@@ -2,7 +2,6 @@
 
 .leftbar {
   @include themify($themes) {
-    flex: 2;
     position: sticky;
     top: 70px;
     height: calc(100vh - 70px);
@@ -27,7 +26,7 @@
         flex-direction: column;
         gap: 20px;
         span {
-          font-size: 12px;
+          font-size: 14px;
         }
         .user {
           display: flex;
