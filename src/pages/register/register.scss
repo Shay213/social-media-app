@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .register {
   height: 100vh;
   background-color: rgb(193, 190, 255);
@@ -5,7 +7,7 @@
   align-items: center;
   justify-content: center;
   .card {
-    width: 50%;
+    width: clamp(800px, 60%, 1130px);
     display: flex;
     flex-direction: row-reverse;
     background-color: #fff;
@@ -13,17 +15,31 @@
     min-height: 500px;
     overflow: hidden;
 
+    @include medium() {
+      flex-direction: column;
+      width: max(360px, 50%);
+    }
+
+    @include mobile() {
+      width: 80%;
+    }
+
     .left {
       background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
         url("images/group2.jpg");
-      background-size: cover;
       background-position: 20%;
+      background-size: cover;
       flex: 1;
       padding: 50px;
       display: flex;
       flex-direction: column;
       gap: 30px;
       color: #fff;
+
+      @include medium() {
+        display: none;
+      }
+
       h1 {
         font-size: 90px;
         line-height: 90px;
@@ -33,14 +49,24 @@
       span {
         font-size: 14px;
       }
-      button {
-        width: 50%;
-        padding: 10px;
-        border: none;
-        background-color: #fff;
-        color: rebeccapurple;
-        font-weight: bold;
-        cursor: pointer;
+
+      .loginLink {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        a {
+          width: 50%;
+        }
+        button {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          background-color: #fff;
+          color: rebeccapurple;
+          font-weight: bold;
+          cursor: pointer;
+        }
       }
     }
     .right {
@@ -50,6 +76,10 @@
       flex-direction: column;
       justify-content: center;
       gap: 50px;
+
+      @include mobile() {
+        padding: 20px;
+      }
 
       h1 {
         color: #555;
@@ -70,6 +100,33 @@
           background-color: #938eef;
           color: #fff;
           font-weight: 700;
+          cursor: pointer;
+        }
+      }
+
+      .loginLink {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+
+        @include medium() {
+          display: flex;
+        }
+
+        span {
+          font-size: 14px;
+        }
+
+        a {
+          width: 50%;
+        }
+        button {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          background-color: #938eef;
+          color: #fff;
+          font-weight: bold;
           cursor: pointer;
         }
       }
