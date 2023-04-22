@@ -2,6 +2,7 @@ import "./stories.scss";
 import story from "../../assets/images/story.jpg";
 import Story from "./Story";
 import { useAuthContext } from "../../context/AuthContext";
+import Slider from "./Slider";
 
 const STORIES = [
   {
@@ -24,13 +25,33 @@ const STORIES = [
     name: "Jane Doe",
     url: story,
   },
+  {
+    id: 5,
+    name: "Jane Doe",
+    url: story,
+  },
+  {
+    id: 6,
+    name: "Jane Doe",
+    url: story,
+  },
+  {
+    id: 7,
+    name: "Jane Doe",
+    url: story,
+  },
 ];
 
 export default function Stories() {
   const { currentUser } = useAuthContext();
 
   return (
-    <div className="stories">
+    <Slider
+      visibleElements={4}
+      gap={10}
+      height={300}
+      options={{ autoFit: true, idealElWidth: 180 }}
+    >
       <Story
         name={currentUser?.name ?? ""}
         url={currentUser?.imgUrl ?? ""}
@@ -39,6 +60,6 @@ export default function Stories() {
       {STORIES.map((story) => (
         <Story key={story.id} name={story.name} url={story.url} />
       ))}
-    </div>
+    </Slider>
   );
 }

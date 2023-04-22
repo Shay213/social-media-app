@@ -1,40 +1,46 @@
 .stories {
-  display: flex;
-  gap: 10px;
-  height: 250px;
+  width: 100%;
   margin-bottom: 30px;
-  .story {
-    flex: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    span {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      color: #fff;
-      font-weight: 700;
-    }
-    button {
-      position: absolute;
-      bottom: 40px;
-      left: 10px;
-      color: #fff;
-      background-color: #5271ff;
-      border-radius: 50%;
-      border: none;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      font-size: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  overflow: hidden;
+  position: relative;
+  .slider {
+    position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+    height: 100%;
+    .story {
+      z-index: 800;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #fff;
+        font-weight: 700;
+      }
+      button {
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        color: #fff;
+        background-color: #5271ff;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }
