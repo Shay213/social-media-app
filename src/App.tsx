@@ -27,7 +27,7 @@ function App() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "clamp(240px, 15%, 400px) 2fr clamp(270px, 25%, 500px)",
+              "clamp(240px, 15%, 400px) 2fr clamp(310px, 25%, 500px)",
           }}
         >
           <Leftbar />

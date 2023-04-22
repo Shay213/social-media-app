@@ -1,22 +1,26 @@
 import { type UserInfoProps } from "./Suggestions";
+import userPic from "../../assets/images/userProfile.jpg";
 
 export default function OnlineFriends() {
   return (
     <div className="item">
       <span>Online Friends</span>
-      <div className="user">
-        <UserInfo name="Jane Doe" url="" />
-      </div>
+      <User name="Jane Doe" url={userPic} />
+      <User name="Jane Doe" url={userPic} />
+      <User name="Jane Doe" url={userPic} />
+      <User name="Jane Doe" url={userPic} />
     </div>
   );
 }
 
-function UserInfo({ name, url }: UserInfoProps) {
+function User({ name, url }: UserInfoProps) {
   return (
-    <div className="userInfo">
-      <img src={url} alt="" />
-      <div className="online" />
-      <span>{name}</span>
+    <div className="user">
+      <div className="userInfo">
+        <img src={url} alt="" />
+        <div className="online" />
+        <span>{name}</span>
+      </div>
     </div>
   );
 }
