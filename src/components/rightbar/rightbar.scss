@@ -8,6 +8,10 @@
     overflow-y: scroll;
     background-color: themed("bgSoft");
 
+    @include medium() {
+      display: none;
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }

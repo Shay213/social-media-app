@@ -9,6 +9,10 @@
     background-color: themed("bg");
     color: themed("textColor");
 
+    @media (max-width: 1160px) {
+      display: none;
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }

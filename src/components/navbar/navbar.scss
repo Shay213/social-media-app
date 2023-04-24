@@ -36,6 +36,10 @@
           width: 400px;
           background-color: transparent;
           color: themed("textColor");
+
+          @media (max-width: 1080px) {
+            display: none;
+          }
         }
       }
     }
