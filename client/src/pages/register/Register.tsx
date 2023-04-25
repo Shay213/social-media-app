@@ -32,7 +32,6 @@ export default function Register() {
 
     try {
       await axios.post("http://localhost:8800/api/auth/register", inputs);
-      //navigate("/");
     } catch (error) {
       const err = error as AxiosError;
       const res = err.response as AxiosResponse;

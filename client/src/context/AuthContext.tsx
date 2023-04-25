@@ -1,22 +1,29 @@
+import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import userProfile from "../assets/images/userProfile.jpg";
 
 interface User {
   id: number;
+  username: string;
+  email: string;
   name: string;
-  imgUrl: string;
+  coverpic?: string;
+  profilepic?: string;
+  city?: string;
+  website?: string;
+}
+
+interface Inputs {
+  username: string;
+  password: string;
 }
 
 interface AuthContextProviderValues {
   currentUser: User | null;
-  login: () => void;
+  login?: (inputs: Inputs) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextProviderValues>({
   currentUser: null,
-  login: () => {
-    /* Empty function intentionally added here */
-  },
 });
 
 export function useAuthContext() {
@@ -31,8 +38,16 @@ export default function AuthContextProvider({
     return JSON.parse(localStorage.getItem("user") as string) as User;
   });
 
-  const login = () => {
-    setCurrentUser({ id: 1, name: "John Doe", imgUrl: userProfile });
+  const login = async (inputs: Inputs) => {
+    const res = await axios.post(
+      "http://localhost:8800/api/auth/login",
+      inputs,
+      {
+        withCredentials: true,
+      }
+    );
+
+    setCurrentUser(res.data);
   };
 
   useEffect(() => {
