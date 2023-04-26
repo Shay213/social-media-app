@@ -54,7 +54,7 @@ export default function Stories() {
     >
       <Story
         name={currentUser?.name ?? ""}
-        url={currentUser?.imgUrl ?? ""}
+        url={currentUser?.profilepic ?? ""}
         isUser={true}
       />
       {STORIES.map((story) => (

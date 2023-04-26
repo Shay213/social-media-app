@@ -57,7 +57,7 @@ export default function Share() {
       <div className="container">
         <div className="top">
           <div className="left">
-            <img src={currentUser?.coverpic} alt="" />
+            <img src={currentUser?.profilepic} alt="" />
             <input
               type="text"
               placeholder={`What's on your mind ${currentUser?.name}?`}

@@ -66,7 +66,7 @@ export default function Leftbar() {
 
   menuSections[0].items[0] = {
     name: currentUser?.name ?? "",
-    url: currentUser?.imgUrl ?? "",
+    url: currentUser?.profilepic ?? "",
   };
 
   return (
