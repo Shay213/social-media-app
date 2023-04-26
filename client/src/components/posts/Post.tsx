@@ -18,6 +18,7 @@ interface PostProps {
   userId: number;
   desc: string;
   createdat: string;
+  postId: number;
 }
 
 export default function Post({
@@ -27,6 +28,7 @@ export default function Post({
   userId,
   desc,
   createdat,
+  postId,
 }: PostProps) {
   const [commentOpen, setCommentOpen] = useState(false);
   const liked = false;
@@ -69,7 +71,7 @@ export default function Post({
             Share
           </div>
         </div>
-        {commentOpen && <Comments />}
+        {commentOpen && <Comments postId={postId} />}
       </div>
     </div>
   );

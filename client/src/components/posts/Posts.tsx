@@ -18,7 +18,7 @@ export default function Posts() {
     const res = await makeRequest.get("/posts");
     return res.data;
   });
-  console.log(data);
+
   return (
     <div className="posts">
       {error
@@ -34,6 +34,7 @@ export default function Posts() {
               userId={post.userid}
               desc={post.description}
               createdat={post.createdat}
+              postId={post.id}
             />
           ))}
     </div>
