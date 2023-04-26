@@ -8,7 +8,8 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import moment from "moment";
 
 interface PostProps {
   name: string;
@@ -16,6 +17,7 @@ interface PostProps {
   img: string;
   userId: number;
   desc: string;
+  createdat: string;
 }
 
 export default function Post({
@@ -24,6 +26,7 @@ export default function Post({
   img,
   userId,
   desc,
+  createdat,
 }: PostProps) {
   const [commentOpen, setCommentOpen] = useState(false);
   const liked = false;
@@ -38,14 +41,14 @@ export default function Post({
               <Link to={`/profile/${userId}`} style={{ color: "inherit" }}>
                 <span className="name">{name}</span>
               </Link>
-              <span className="date">1 min ago</span>
+              <span className="date">{moment(createdat).fromNow()}</span>
             </div>
           </div>
           <MoreHorizOutlinedIcon />
         </div>
         <div className="content">
           <p>{desc}</p>
-          <img src={img} alt="" />
+          <img src={"upload/" + img} alt="" />
         </div>
         <div className="info">
           <div className="item">

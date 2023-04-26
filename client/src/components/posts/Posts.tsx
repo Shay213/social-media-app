@@ -10,6 +10,7 @@ interface IPost {
   img: string;
   userid: number;
   description: string;
+  createdat: string;
 }
 
 export default function Posts() {
@@ -32,6 +33,7 @@ export default function Posts() {
               img={post.img}
               userId={post.userid}
               desc={post.description}
+              createdat={post.createdat}
             />
           ))}
     </div>

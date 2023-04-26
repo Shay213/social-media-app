@@ -35,7 +35,7 @@ export const addPost = async (req, res) => {
       req.body.description,
       req.body.img,
       userInfo.id,
-      moment(Date.now()).format("YYYY-MM-DD HH:MM:SS"),
+      moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
     ];
 
     try {
