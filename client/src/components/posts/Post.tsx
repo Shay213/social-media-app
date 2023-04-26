@@ -10,9 +10,10 @@ import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useAuthContext } from "../../context/AuthContext";
+import { AxiosRequestConfig } from "axios";
 
 interface PostProps {
   name: string;
@@ -41,6 +42,27 @@ export default function Post({
     return res.data;
   });
 
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(
+    (liked: boolean) => {
+      return makeRequest({
+        method: liked ? "DELETE" : "POST",
+        url: "/likes",
+        data: { postId },
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["likes"]);
+      },
+    }
+  );
+
+  const handleLike = () => {
+    mutation.mutate(data.includes(currentUser?.id));
+  };
+
   return (
     <div className="post">
       <div className="container">
@@ -62,10 +84,15 @@ export default function Post({
         </div>
         <div className="info">
           <div className="item">
-            {data && data.includes(currentUser?.id) ? (
-              <FavoriteOutlinedIcon style={{ color: "red" }} />
+            {isLoading ? (
+              "Loading..."
+            ) : data && data.includes(currentUser?.id) ? (
+              <FavoriteOutlinedIcon
+                style={{ color: "red" }}
+                onClick={handleLike}
+              />
             ) : (
-              <FavoriteBorderOutlinedIcon />
+              <FavoriteBorderOutlinedIcon onClick={handleLike} />
             )}
             {data && data.length} Likes
           </div>
