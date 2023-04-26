@@ -10,6 +10,9 @@ import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { useQuery } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 interface PostProps {
   name: string;
@@ -31,7 +34,12 @@ export default function Post({
   postId,
 }: PostProps) {
   const [commentOpen, setCommentOpen] = useState(false);
-  const liked = false;
+  const { currentUser } = useAuthContext();
+
+  const { isLoading, error, data } = useQuery(["likes", postId], async () => {
+    const res = await makeRequest.get("/likes?postId=" + postId);
+    return res.data;
+  });
 
   return (
     <div className="post">
@@ -54,8 +62,12 @@ export default function Post({
         </div>
         <div className="info">
           <div className="item">
-            {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
-            12 Likes
+            {data && data.includes(currentUser?.id) ? (
+              <FavoriteOutlinedIcon style={{ color: "red" }} />
+            ) : (
+              <FavoriteBorderOutlinedIcon />
+            )}
+            {data && data.length} Likes
           </div>
           <div
             className="item"
