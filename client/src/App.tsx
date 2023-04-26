@@ -1,5 +1,6 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./app.scss";
 
 // components
@@ -18,23 +19,26 @@ import { useAuthContext } from "./context/AuthContext";
 function App() {
   const { darkMode } = useDarkModeContext();
   const { currentUser } = useAuthContext();
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? "dark" : "light"}`}>
-        <Navbar />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "clamp(240px, 15%, 400px) 2fr clamp(310px, 25%, 500px)",
-          }}
-        >
-          <Leftbar />
-          <Outlet />
-          <Rightbar />
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${darkMode ? "dark" : "light"}`}>
+          <Navbar />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns:
+                "clamp(240px, 15%, 400px) 2fr clamp(310px, 25%, 500px)",
+            }}
+          >
+            <Leftbar />
+            <Outlet />
+            <Rightbar />
+          </div>
         </div>
-      </div>
+      </QueryClientProvider>
     );
   };
 
